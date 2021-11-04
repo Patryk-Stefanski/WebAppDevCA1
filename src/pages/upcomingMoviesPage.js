@@ -7,7 +7,7 @@ import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import PlayListAddIcon from '@material-ui/icons/PlaylistAdd'
 
 const UpcomingMoviesPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('movie/upcoming', getUpcomingMovies)
+  const {  data, error, isLoading, isError }  = useQuery('upComingMovie', getUpcomingMovies)
   
   if (isLoading) {
     return <Spinner />
