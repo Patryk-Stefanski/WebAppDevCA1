@@ -16,6 +16,7 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
+import PlayListAddIcon from '@material-ui/icons/PlaylistAdd'
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -49,7 +50,12 @@ export default function MovieCard({ movie, action }) {
             <Avatar className={classes.avatar}>
               <FavoriteIcon />
             </Avatar>
-          ) : null
+          ) : null 
+          // movie.mustWatch ? (
+          //   <Avatar className={classes.avatar}>
+          //     <PlayListAddIcon />
+          //   </Avatar>
+          // ) : null
         }
         title={
           <Typography variant="h5" component="p">
