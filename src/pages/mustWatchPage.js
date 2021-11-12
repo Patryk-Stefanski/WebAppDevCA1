@@ -6,6 +6,7 @@ import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
 import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
+import RemoveFromMustWatchIcon from "../components/cardIcons/removeFromMustWatch";
 
 const MustWatchPage = () => {
   const {mustWatch: movieIds } = useContext(MoviesContext);
@@ -34,7 +35,7 @@ const MustWatchPage = () => {
       action={(movie) => {
         return (
           <>
-            <RemoveFromFavorites movie={movie} />
+            <RemoveFromMustWatchIcon movie={movie} />
             <WriteReview movie={movie} />
           </>
         );
