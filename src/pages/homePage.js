@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useState } from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import {getMovies} from '../api/tmdb-api'
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import { update } from "../components/templateMovieListPage";
 
 const HomePage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('discover', getMovies)
+  const { data, error, isLoading, isError}  = useQuery('discover', getMovies)
 
   if (isLoading) {
     return <Spinner />
@@ -14,7 +15,7 @@ const HomePage = (props) => {
 
   if (isError) {
     return <h1>{error.message}</h1>
-  }  
+  }
   const movies = data.results;
 
   // Redundant, but necessary to avoid app crashing.

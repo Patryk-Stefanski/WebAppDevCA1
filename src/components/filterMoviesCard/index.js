@@ -43,6 +43,8 @@ export default function FilterMoviesCard(props) {
   const genres = data.genres;
   genres.unshift({ id: "0", name: "All" });
 
+  const sorts = [{id:"popularity.asc"}, {id:"popularity.desc"}, {id:"release_date.asc"}, {id:"release_date.desc"}, {id:"revenue.asc"}, {id:"revenue.desc"}, {id:"primary_release_date.asc"}, {id:"primary_release_date.desc"},{id: "original_title.asc"}, {id:"original_title.desc"}, {id:"vote_average.asc"}, {id:"vote_average.desc"}, {id:"vote_count.asc"}, {id:"vote_count.desc"}];
+
   const handleChange = (e, type, value) => {
     e.preventDefault();
     props.onUserInput(type, value); // NEW
@@ -55,6 +57,12 @@ export default function FilterMoviesCard(props) {
   const handleGenreChange = (e) => {
     handleChange(e, "genre", e.target.value);
   };
+
+  const handleSortChange = (e) => {
+    handleChange(e, "sort", e.target.value);
+  };
+
+
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -85,6 +93,22 @@ export default function FilterMoviesCard(props) {
               return (
                 <MenuItem key={genre.id} value={genre.id}>
                   {genre.name}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+        <FormControl className={classes.formControl}>
+          <InputLabel id="sort-label">Sort</InputLabel>
+          <Select
+            labelId="sort-label"
+            id="sort-select"
+            value={props.movieSort}
+            onChange={handleSortChange}>
+             {sorts.map((sort) => {
+              return (
+                <MenuItem key={sort.id} value={sort.id}>
+                  {sort.id}
                 </MenuItem>
               );
             })}

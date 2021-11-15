@@ -4,6 +4,12 @@ import FilterCard from "../filterMoviesCard";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import MovieList from "../movieList";
+import { getMovies } from "../../api/tmdb-api";
+import HomePage from "../../pages/homePage";
+import { queryClient } from "../..";
+
+export var sortMoviesBy="popularity.desc";
+export var update = false;
 
 const useStyles = makeStyles({
   root: {
@@ -11,11 +17,15 @@ const useStyles = makeStyles({
   },
 });
 
+
+
 function MovieListPageTemplate({ movies, title, action }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
+  const [sortMovies, setMovieSort] = useState("")
   const genreId = Number(genreFilter);
+
 
   let displayedMovies = movies
     .filter((m) => {
@@ -24,11 +34,18 @@ function MovieListPageTemplate({ movies, title, action }) {
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     });
-
+  
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
+    if  (type === "sort") {
+      setMovieSort(value);
+      sortMoviesBy=value;
+      queryClient.refetchQueries();
+    }
     else setGenreFilter(value);
   };
+
+  
 
   return (
     <Grid container className={classes.root}>
@@ -41,6 +58,7 @@ function MovieListPageTemplate({ movies, title, action }) {
             onUserInput={handleChange}
             titleFilter={nameFilter}
             genreFilter={genreFilter}
+            movieSort={sortMovies}
           />
         </Grid>
         <MovieList action={action} movies={displayedMovies}></MovieList>
@@ -48,4 +66,8 @@ function MovieListPageTemplate({ movies, title, action }) {
     </Grid>
   );
 }
+
+
+
+
 export default MovieListPageTemplate;

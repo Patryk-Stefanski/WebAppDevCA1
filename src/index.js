@@ -16,7 +16,7 @@ import PopularPage from "./pages/popularPage";
 import MustWatchPage from "./pages/mustWatchPage"
 import NowPlayingPage from "./pages/nowPlayingMovies"
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 360000,

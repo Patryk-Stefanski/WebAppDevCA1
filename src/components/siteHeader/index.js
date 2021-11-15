@@ -19,16 +19,6 @@ import RateIcon from '@material-ui/icons/Star';
 import PopularIcon from '@material-ui/icons/Whatshot';
 import MustWatchIcon from '@material-ui/icons/WatchLater';
 
-
-
-
-
-
-
-
-
-
-
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
