@@ -1,10 +1,11 @@
-import React, {useState } from "react";
+import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import {getMovies} from '../api/tmdb-api'
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
-import { update } from "../components/templateMovieListPage";
+import SiteHeader from "../components/siteHeader";
+import { Switch } from "@material-ui/core";
 
 const HomePage = (props) => {
   const { data, error, isLoading, isError}  = useQuery('discover', getMovies)
@@ -23,6 +24,8 @@ const HomePage = (props) => {
   localStorage.setItem('favorites', JSON.stringify(favorites))
   const addToFavorites = (movieId) => true 
    return (
+    <>
+    <SiteHeader/>
       <PageTemplate
         title="Discover Movies"
         movies={movies}
@@ -30,6 +33,8 @@ const HomePage = (props) => {
           return <AddToFavoritesIcon movie={movie} />
         }}
       />
+      </>
+      
   );
 };
 

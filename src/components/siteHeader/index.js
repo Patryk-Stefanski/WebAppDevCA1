@@ -34,7 +34,7 @@ const SiteHeader = ( { history }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const menuOptions = [
-    { label: <HomeIcon></HomeIcon> , path: "/" },
+    { label: <HomeIcon></HomeIcon> , path: "/movies/home" },
     { label: <FavoriteIcon></FavoriteIcon>, path: "/movies/favorites" },
     { label: <UpcomingIcon></UpcomingIcon>, path: "/movies/upcoming" },
     { label: <RateIcon></RateIcon>, path: "/movies/top_rated" },

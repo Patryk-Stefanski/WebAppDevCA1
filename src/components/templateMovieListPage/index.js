@@ -4,8 +4,6 @@ import FilterCard from "../filterMoviesCard";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import MovieList from "../movieList";
-import { getMovies } from "../../api/tmdb-api";
-import HomePage from "../../pages/homePage";
 import { queryClient } from "../..";
 
 export var sortMoviesBy="popularity.desc";

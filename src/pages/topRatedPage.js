@@ -4,6 +4,7 @@ import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import {getTopRated} from "../api/tmdb-api"
 import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
+import SiteHeader from "../components/siteHeader";
 
 const TopRatedPage = (props) => {
   const {  data, error, isLoading, isError }  = useQuery('topMovies', getTopRated)
@@ -22,6 +23,8 @@ const TopRatedPage = (props) => {
   localStorage.setItem('mustWatch', JSON.stringify(mustWatch))
   const addToMustWatch = (movieId) => true 
    return (
+    <>
+    <SiteHeader/>
       <PageTemplate
         title="Top Rated Movies"
         movies={movies}
@@ -29,6 +32,7 @@ const TopRatedPage = (props) => {
           return <AddToMustWatchIcon movie={movie} />
         }}
       />
+      </>
   );
 };
 

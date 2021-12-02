@@ -6,6 +6,7 @@ import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
 import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
+import SiteHeader from "../components/siteHeader";
 
 const FavoriteMoviesPage = () => {
   const {favorites: movieIds } = useContext(MoviesContext);
@@ -28,6 +29,8 @@ const FavoriteMoviesPage = () => {
   const movies = favoriteMovieQueries.map((q) => q.data);
   const toDo = () => true;
   return (
+    <>
+    <SiteHeader/>
     <PageTemplate
       title="Favorite Movies"
       movies={movies}
@@ -40,6 +43,7 @@ const FavoriteMoviesPage = () => {
         );
       }}
     />
+    </>
   );
 };
 

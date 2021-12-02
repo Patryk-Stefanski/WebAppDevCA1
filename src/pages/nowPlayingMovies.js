@@ -4,6 +4,7 @@ import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import {getNowPlaying} from "../api/tmdb-api"
 import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
+import SiteHeader from "../components/siteHeader";
 
 const NowPlayingPage = (props) => {
   const {  data, error, isLoading, isError }  = useQuery('NowPlayingMovies', getNowPlaying)
@@ -22,6 +23,8 @@ const NowPlayingPage = (props) => {
   localStorage.setItem('mustWatch', JSON.stringify(mustWatch))
   const addToMustWatch = (movieId) => true 
    return (
+    <>
+    <SiteHeader/>
       <PageTemplate
         title="Now Playing"
         movies={movies}
@@ -29,6 +32,7 @@ const NowPlayingPage = (props) => {
           return <AddToMustWatchIcon movie={movie} />
         }}
       />
+      </>
   );
 };
 

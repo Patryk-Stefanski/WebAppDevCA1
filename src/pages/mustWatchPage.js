@@ -4,9 +4,9 @@ import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
-import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
 import RemoveFromMustWatchIcon from "../components/cardIcons/removeFromMustWatch";
+import SiteHeader from "../components/siteHeader";
 
 const MustWatchPage = () => {
   const {mustWatch: movieIds } = useContext(MoviesContext);
@@ -29,6 +29,8 @@ const MustWatchPage = () => {
   const movies = mustWatchQueries.map((q) => q.data);
   const toDo = () => true;
   return (
+    <>
+    <SiteHeader/>
     <PageTemplate
       title="Must Watch"
       movies={movies}
@@ -41,6 +43,7 @@ const MustWatchPage = () => {
         );
       }}
     />
+    </>
   );
 };
 

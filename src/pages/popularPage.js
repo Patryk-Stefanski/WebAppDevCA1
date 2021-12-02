@@ -4,6 +4,7 @@ import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import {getPopular} from "../api/tmdb-api"
 import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
+import SiteHeader from "../components/siteHeader";
 
 const PopularPage = (props) => {
   const {  data, error, isLoading, isError }  = useQuery('popularMovies', getPopular)
@@ -22,6 +23,8 @@ const PopularPage = (props) => {
   localStorage.setItem('mustWatch', JSON.stringify(mustWatch))
   const addToMustWatch = (movieId) => true 
    return (
+    <>
+    <SiteHeader/>
       <PageTemplate
         title="Popular Movies"
         movies={movies}
@@ -29,6 +32,7 @@ const PopularPage = (props) => {
           return <AddToMustWatchIcon movie={movie} />
         }}
       />
+      </>
   );
 };
 

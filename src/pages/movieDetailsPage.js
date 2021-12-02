@@ -2,10 +2,10 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import MovieDetails from "../components/movieDetails";
 import PageTemplate from "../components/templateMoviePage";
-import useMovie from "../hooks/useMovie";
 import { getMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
+import SiteHeader from "../components/siteHeader";
 
 const MovieDetailsPage = (props) => {
   const { id } = props.match.params
@@ -25,6 +25,7 @@ const MovieDetailsPage = (props) => {
 
   return (
     <>
+    <SiteHeader/>
       {movie ? (
         <>
           <PageTemplate movie={movie}>
