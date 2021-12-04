@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/authContext"
 import { Link, useHistory } from "react-router-dom"
 import { signInWithEmailAndPassword } from "@firebase/auth"
 import { auth } from "../../api/firebase"
+import { queryClient } from "../.."
 
   export default function Login() {
   const emailRef = useRef()
@@ -22,7 +23,8 @@ import { auth } from "../../api/firebase"
       setError("")
       setLoading(true)
       signInWithEmailAndPassword(auth,emailRef.current.value, passwordRef.current.value)
-      history.push("/")
+      history.push('/movies/home')
+      window.location.reload(false)
     } catch {
       setError("Failed to log in")
     }

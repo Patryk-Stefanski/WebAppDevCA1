@@ -5,10 +5,15 @@ import Spinner from '../components/spinner'
 import {getPopular} from "../api/tmdb-api"
 import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
 import SiteHeader from "../components/siteHeader";
+import Pagination from "@material-ui/lab/Pagination";
 
-const PopularPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('popularMovies', getPopular)
-  
+const PopularPage = (props) => {  
+  const [page, setPage] = React.useState(1);
+  const {data, error, isLoading, isError }  = useQuery(['popularMovies',{page : page}], getPopular)
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
   if (isLoading) {
     return <Spinner />
   }
@@ -32,6 +37,7 @@ const PopularPage = (props) => {
           return <AddToMustWatchIcon movie={movie} />
         }}
       />
+              <Pagination count={data.total_pages} style={{position: 'absolute' , left:'50%',transform:'translate(-50%)'} } page={page} onChange={handleChange}/>
       </>
   );
 };

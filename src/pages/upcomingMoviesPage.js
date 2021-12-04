@@ -5,10 +5,15 @@ import Spinner from '../components/spinner'
 import {getUpcomingMovies} from "../api/tmdb-api"
 import AddToMustWatchIcon from "../components/cardIcons/addToMustWatch";
 import SiteHeader from "../components/siteHeader";
+import Pagination from "@material-ui/lab/Pagination";
 
 const UpcomingMoviesPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('upComingMovie', getUpcomingMovies)
-  
+  const [page, setPage] = React.useState(1);
+  const {  data, error, isLoading, isError }  = useQuery(['upComingMovie',{page : page}], getUpcomingMovies)
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
   if (isLoading) {
     return <Spinner />
   }
@@ -32,6 +37,7 @@ const UpcomingMoviesPage = (props) => {
           return <AddToMustWatchIcon movie={movie} />
         }}
       />
+              <Pagination count={data.total_pages} style={{position: 'absolute' , left:'50%',transform:'translate(-50%)'} } page={page} onChange={handleChange}/>
       </>
   );
 };

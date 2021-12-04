@@ -17,6 +17,7 @@ import MustWatchPage from "./pages/mustWatchPage"
 import NowPlayingPage from "./pages/nowPlayingMovies"
 import signIn from "./pages/signInPage";
 import "bootstrap/dist/css/bootstrap.min.css"
+import PrivateRoute from "./components/userAuth/privateRoute";
 
 export const queryClient = new QueryClient({
   defaultOptions: {

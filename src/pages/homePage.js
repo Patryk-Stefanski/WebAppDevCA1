@@ -5,10 +5,15 @@ import Spinner from '../components/spinner'
 import {getMovies} from '../api/tmdb-api'
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import SiteHeader from "../components/siteHeader";
-import { Switch } from "@material-ui/core";
+import Pagination from "@material-ui/lab/Pagination"
 
 const HomePage = (props) => {
-  const { data, error, isLoading, isError}  = useQuery('discover', getMovies)
+  const [page, setPage] = React.useState(1);
+  const {data, error, isLoading, isError}  = useQuery(['discover',{page : page}], getMovies)
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
 
   if (isLoading) {
     return <Spinner />
@@ -33,6 +38,7 @@ const HomePage = (props) => {
           return <AddToFavoritesIcon movie={movie} />
         }}
       />
+        <Pagination count={data.total_pages} style={{position: 'absolute' , left:'50%',transform:'translate(-50%)'} } page={page} onChange={handleChange}/>
       </>
       
   );
