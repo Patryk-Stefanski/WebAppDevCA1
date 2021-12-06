@@ -37,16 +37,16 @@ const App = () => {
         <MoviesContextProvider>
             {" "}
             <Switch>
-        <Route exact path="/movies/home" component={HomePage}></Route>
-        <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-        <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-        <Route exact path="/movies/must_watch" component={MustWatchPage} />
-        <Route exact path="/movies/top_rated" component={TopRatedPage} />
-        <Route exact path="/movies/popular" component={PopularPage} />
-        <Route exact path="/movies/now_playing" component={NowPlayingPage} />
-        <Route path="/movies/:id" component={MoviePage} />
-        <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-        <Route path="/reviews/:id" component={MovieReviewPage} />
+        <Route exact path="/movies/home" component={HomePage}/>
+        <PrivateRoute exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+        <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+        <PrivateRoute exact path="/movies/must_watch" component={MustWatchPage} />
+        <PrivateRoute exact path="/movies/top_rated" component={TopRatedPage} />
+        <PrivateRoute exact path="/movies/popular" component={PopularPage} />
+        <PrivateRoute exact path="/movies/now_playing" component={NowPlayingPage} />
+        <PrivateRoute path="/movies/:id" component={MoviePage} />
+        <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
+        <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
         <Route exact path="/" component={signIn} />
         <Redirect from="*" to="/" />
       </Switch>

@@ -1,7 +1,6 @@
 import React from "react"
 import Signup from "../components/userAuth/signUp"
 import { Container } from "react-bootstrap"
-import { AuthProvider } from "../contexts/authContext"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import HomePage from "./homePage"
 import Login from "../components/userAuth/login"
@@ -17,13 +16,13 @@ const signIn = (props) => {
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Router>
-          <AuthProvider>
+          
             <Switch>
               <Route exact path="/" component={Login} />
               <Route path="/signup" component={Signup} />
               <PrivateRoute path="/home" component={HomePage} />
             </Switch>
-          </AuthProvider>
+        
         </Router>
       </div>
     </Container>
