@@ -53,6 +53,9 @@ import { auth } from "../../api/firebase"
       <div className="w-100 text-center mt-2">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
+      <div className="w-100 text-center mt-3">
+          <Link to="/forgotPassword">Forgot Password?</Link>
+      </div>
     </>
   )
 }

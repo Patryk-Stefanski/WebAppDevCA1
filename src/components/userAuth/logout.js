@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import { Card, Button, Alert } from "react-bootstrap"
-import { Link, useHistory } from "react-router-dom"
-import { signOut , } from "@firebase/auth"
+import { useHistory } from "react-router-dom"
+import { signOut  } from "@firebase/auth"
 import { auth } from "../../api/firebase"
+import { red } from "@material-ui/core/colors"
 
-export default function Dashboard() {
+export default function LogOut() {
   const [error, setError] = useState("")
   const history = useHistory()
   var currentUser = auth.currentUser
@@ -13,8 +14,8 @@ export default function Dashboard() {
     setError("")
 
     try {
-      await signOut()
-      history.push("/login")
+      signOut()
+      history.push("/")
     } catch {
       setError("Failed to log out")
     }
@@ -30,7 +31,7 @@ export default function Dashboard() {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        <Button variant="link" onClick={handleLogout}>
+        <Button  onClick={handleLogout} style={{backgroundColor:"#FF0000" , border:"#FF0000"}}>
           Log Out
         </Button>
       </div>

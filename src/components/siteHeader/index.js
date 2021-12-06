@@ -18,7 +18,7 @@ import NowPlayingIcon from '@material-ui/icons/EventAvailable';
 import RateIcon from '@material-ui/icons/Star';
 import PopularIcon from '@material-ui/icons/Whatshot';
 import MustWatchIcon from '@material-ui/icons/WatchLater';
-
+import AccountBox from '@material-ui/icons/AccountBox'
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
@@ -41,6 +41,7 @@ const SiteHeader = ( { history }) => {
     { label: <PopularIcon></PopularIcon>, path: "/movies/popular" },
     { label: <MustWatchIcon></MustWatchIcon>, path: "/movies/must_watch" },
     { label: <NowPlayingIcon></NowPlayingIcon>, path: "/movies/now_playing" },
+    { label: <AccountBox></AccountBox> , path: "/account" }
   ];
 
   const handleMenuSelect = (pageURL) => {

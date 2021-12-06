@@ -6,6 +6,7 @@ import HomePage from "./homePage"
 import Login from "../components/userAuth/login"
 import PrivateRoute from "../components/userAuth/privateRoute"
 import "bootstrap/dist/css/bootstrap.min.css"
+import ForgotPassword from "../components/userAuth/forgotPassword"
 
 
 const signIn = (props) => {
@@ -20,6 +21,7 @@ const signIn = (props) => {
             <Switch>
               <Route exact path="/" component={Login} />
               <Route path="/signup" component={Signup} />
+              <Route path="/forgotPassword" component={ForgotPassword} />
               <PrivateRoute path="/home" component={HomePage} />
             </Switch>
         
