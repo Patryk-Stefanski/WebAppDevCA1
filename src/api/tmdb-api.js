@@ -146,4 +146,40 @@ export const getNowPlaying = (args) => {
 };
 
 
+export const getActors = (args) => {
+  const [queryPart, pagePart] = args.queryKey;
+  const { page } = pagePart;
+  const {query} = queryPart;
+  return fetch(
+    `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+    .catch((error) => {
+      throw error
+    });
+};
+
+export const getActor = (args) => {
+  const [ id] = args.queryKey;
+  const { person_id } = id;
+  return fetch(
+    `https://api.themoviedb.org/3/person/${person_id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+    .catch((error) => {
+      throw error
+    });
+};
+
+
+
+
 

@@ -14,7 +14,7 @@ export default function LogOut() {
     setError("")
 
     try {
-      signOut()
+      await signOut()
       history.push("/")
     } catch {
       setError("Failed to log out")

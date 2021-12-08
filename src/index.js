@@ -19,6 +19,7 @@ import signIn from "./pages/signInPage";
 import "bootstrap/dist/css/bootstrap.min.css"
 import PrivateRoute from "./components/userAuth/privateRoute";
 import LogOutPage from "./pages/logoutPage";
+import ActorsPage from "./pages/actorsPage";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -49,6 +50,7 @@ const App = () => {
         <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
         <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
         <PrivateRoute path="/account" component={LogOutPage} />
+        <PrivateRoute path="/actors" component={ActorsPage} />
         <Route exact path="/" component={signIn} />
         <Redirect from="*" to="/" />
       </Switch>
