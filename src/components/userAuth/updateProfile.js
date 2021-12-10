@@ -23,10 +23,10 @@ export default function UpdateProfile() {
     setError("")
 
     if (emailRef.current.value !== auth.currentUser.email) {
-      promises.push(updateEmail(emailRef.current.value))
+      promises.push(updateEmail(auth.currentUser , emailRef.current.value))
     }
     if (passwordRef.current.value) {
-      promises.push(updatePassword(passwordRef.current.value))
+      promises.push(updatePassword(auth.currentUser ,passwordRef.current.value))
     }
 
     Promise.all(promises)

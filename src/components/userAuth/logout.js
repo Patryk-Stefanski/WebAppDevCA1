@@ -13,7 +13,7 @@ export default function LogOut() {
     setError("")
 
     try {
-      signOut()
+      signOut(auth)
       history.push("/")
     } catch {
       setError("Failed to log out")
