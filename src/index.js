@@ -6,7 +6,6 @@ import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
-import SiteHeader from './components/siteHeader'
 import MoviesContextProvider from "./contexts/moviesContext";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
@@ -20,6 +19,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import PrivateRoute from "./components/userAuth/privateRoute";
 import LogOutPage from "./pages/logoutPage";
 import ActorsPage from "./pages/actorsPage";
+import ActorPage from "./pages/actorDetailsPage";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,13 +45,14 @@ const App = () => {
         <PrivateRoute exact path="/movies/must_watch" component={MustWatchPage} />
         <PrivateRoute exact path="/movies/top_rated" component={TopRatedPage} />
         <PrivateRoute exact path="/movies/popular" component={PopularPage} />
+        <PrivateRoute path="/actors/home" component={ActorsPage} />
         <PrivateRoute exact path="/movies/now_playing" component={NowPlayingPage} />
+        <PrivateRoute path="/actors/:id" component={ActorPage} />
         <PrivateRoute path="/movies/:id" component={MoviePage} />
         <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
         <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
         <PrivateRoute path="/account" component={LogOutPage} />
-        <PrivateRoute path="/actors" component={ActorsPage} />
-        <Route exact path="/" component={signIn} />
+        <Route exact pah="/" component={signIn} />t
         <Redirect from="*" to="/" />
       </Switch>
         </MoviesContextProvider>

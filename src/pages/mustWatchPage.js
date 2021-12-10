@@ -27,7 +27,6 @@ const MustWatchPage = () => {
     return <Spinner />;
   }
   const movies = mustWatchQueries.map((q) => q.data);
-  const toDo = () => true;
   return (
     <>
     <SiteHeader/>

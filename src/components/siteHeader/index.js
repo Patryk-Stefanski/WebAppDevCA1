@@ -43,8 +43,9 @@ const SiteHeader = ( { history }) => {
     { label: <PopularIcon></PopularIcon>, path: "/movies/popular" },
     { label: <MustWatchIcon></MustWatchIcon>, path: "/movies/must_watch" },
     { label: <NowPlayingIcon></NowPlayingIcon>, path: "/movies/now_playing" },
-    { label: <AccountBox></AccountBox> , path: "/account" },
-    { label: <PersonIcon></PersonIcon> , path:"/actors"}
+    { label: <PersonIcon></PersonIcon> , path:"/actors/home"},
+    { label: <AccountBox></AccountBox> , path: "/account" }
+   
   ];
 
   const handleMenuSelect = (pageURL) => {

@@ -28,7 +28,6 @@ const FavoriteMoviesPage = () => {;
   }
 
   const movies = favoriteMovieQueries.map((q) => q.data);
-  const toDo = () => true;
   return (
     <>
     <SiteHeader/>

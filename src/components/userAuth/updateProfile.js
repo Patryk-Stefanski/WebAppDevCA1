@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
-import { Link, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { auth } from "../../api/firebase"
 import { updatePassword , updateEmail } from "@firebase/auth"
-import { green } from "@material-ui/core/colors"
 
 export default function UpdateProfile() {
   const emailRef = useRef()

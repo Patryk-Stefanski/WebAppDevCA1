@@ -38,6 +38,7 @@ export const getMovie = (args) => {
   //console.log(args)
   const [, idPart] = args.queryKey;
   const { id } = idPart;
+  console.log(id)
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
   ).then((response) => {
@@ -147,9 +148,8 @@ export const getNowPlaying = (args) => {
 
 
 export const getActors = (args) => {
-  const [queryPart, pagePart] = args.queryKey;
+  const [ pagePart] = args.queryKey;
   const { page } = pagePart;
-  const {query} = queryPart;
   return fetch(
     `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`
   ).then((response) => {
@@ -164,10 +164,11 @@ export const getActors = (args) => {
 };
 
 export const getActor = (args) => {
-  const [ id] = args.queryKey;
-  const { person_id } = id;
+  const [ ,idPart] = args.queryKey;
+  const { id } = idPart;
+  console.log( id + "ID in API")
   return fetch(
-    `https://api.themoviedb.org/3/person/${person_id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
   ).then((response) => {
     if (!response.ok) {
       throw new Error(response.json().message);
@@ -178,6 +179,41 @@ export const getActor = (args) => {
       throw error
     });
 };
+
+export const getActorMovies = (args) => {
+  const [ ,idPart] = args.queryKey;
+  const { id } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+    .catch((error) => {
+      throw error
+    });
+};
+
+export const getActorImages = ({ queryKey }) => {
+  const [, idPart] = queryKey;
+  const { id } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/person/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+
+  })
+    .catch((error) => {
+      throw error
+    });
+};
+
+
 
 
 
