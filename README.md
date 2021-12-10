@@ -4,11 +4,10 @@ Name: Patryk Stefanski
 
 ## Overview.
 
-Source code for  a movie librarly app created for Web App Development 2.
+Source code for  a movie librarly app created for Web App Development 2 .Read me outlines all new features and views added.
 
 ### Features.
-[ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
- 
+
 + Firebase Authentication
 + Sorting of Movies
 + Private Routes
@@ -27,7 +26,7 @@ Run following commands to prepare environment :
  npm install @material-ui/lab
  ```
 
-Create env file with following  and fill in with your own values :
+Create .env file in root directory and update with your own  values:
 ```
 REACT_APP_TMDB_KEY=
 FAST_REFRESH=false
@@ -62,7 +61,7 @@ REACT_APP_FIREBASE_MEASUREMENT_ID=
 
 > Login page which uses authentication in order to gain access to app.
 
-![image](https://user-images.githubusercontent.com/74991829/145590380-c5430216-af5a-4362-ba9c-d2edcee9f28f.png)
+![image](https://user-images.githubusercontent.com/74991829/145591171-6c81ee62-0013-4371-92a0-3fbc19c97dd0.png)
 
 > Signup page which allows you to register a new account which is necessary to gain access to app.
 
@@ -80,25 +79,25 @@ REACT_APP_FIREBASE_MEASUREMENT_ID=
 
 ![image](https://user-images.githubusercontent.com/74991829/145589165-36fb682d-612b-4292-8a19-b2c770889e12.png)
 
-> Popular moies page shows all the currently trending movies.
+> Popular movies page shows all the currently trending movies.
 
-![image](https://user-images.githubusercontent.com/74991829/145589303-70186f7c-d610-4a17-a6a5-d9eb89d1c159.png)
+![image](https://user-images.githubusercontent.com/74991829/145591966-22d1fe8e-342a-4b2f-829f-ab3415a7808b.png)
 
 > Must watch page shows all the movies a user has added to his must watch list.
 
-![image](https://user-images.githubusercontent.com/74991829/145589417-ea294ded-c126-4aa2-9d48-f34e57696524.png)
+![image](https://user-images.githubusercontent.com/74991829/145591815-bfd2d40f-62e0-4c64-b8e4-d00c701a051a.png)
 
 > Now playing page shows all the movies which have been released recently.
 
-![image](https://user-images.githubusercontent.com/74991829/145589525-5f236e66-24cd-4e79-86f3-5cae9f3dfe6a.png)
+![image](https://user-images.githubusercontent.com/74991829/145591535-5e629f76-cbbb-4970-ab69-31a62a33f37a.png)
 
 >Actor page shows all the popular actors , clicking details will bring you to the actor details page .
 
-![image](https://user-images.githubusercontent.com/74991829/145589638-d8e09311-f847-493c-9d0b-3be841d46079.png)
+![image](https://user-images.githubusercontent.com/74991829/145591577-1bdcef76-d48c-4513-a533-917845a4bec9.png)
 
 > Actor details page shows the actors biography and other details.
 
-![image](https://user-images.githubusercontent.com/74991829/145589763-2162715e-962e-43e7-953c-f2fff3b9e655.png)
+![image](https://user-images.githubusercontent.com/74991829/145591634-79d5bfdd-9d78-4cd8-b3f5-f3c82e5aa5ba.png)
 
 > Account page lets the user to logout , update his email or update his password.Logging out will bring you to the logi page.
 
